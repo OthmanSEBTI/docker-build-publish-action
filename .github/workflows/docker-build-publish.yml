@@ -36,6 +36,6 @@ jobs:
             -   name: Build and push
                 uses: docker/build-push-action@v5
                 with:
-                    file: $GITHUB_WORKSPACE/${{inputs.dockerfile-root-folder}}
+                    file: /home/runner/work/docker-build-publish-action/docker-build-publish-action/${{inputs.dockerfile-root-folder}}/Dockerfile
                     push: true
                     tags: othmansebti/test:latest
