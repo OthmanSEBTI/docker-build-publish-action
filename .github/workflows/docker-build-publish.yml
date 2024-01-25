@@ -22,20 +22,20 @@ jobs:
                 with:
                     username: ${{ secrets.DOCKERHUB_USERNAME }}
                     password: ${{ secrets.DOCKERHUB_TOKEN }}
-            -   name: show workdir
-                run: |
-                    echo $GITHUB_WORKSPACE
-                    pwd
-                    ls -a
-                    cd ..
-                    pwd
-                    ls -a
-                    pwd
-                    ls-a
+#            -   name: show workdir
+#               run: |
+#                    echo $GITHUB_WORKSPACE
+#                    pwd
+#                    ls -a
+#                    cd ..
+#                    pwd
+#                    ls -a
+#                    pwd
+#                    ls-a
 
-#            -   name: Build and push
-#                uses: docker/build-push-action@v5
-#                with:
-#                    context: .
-#                    push: true
-#                    tags: othmansebti/test:latest
+            -   name: Build and push
+                uses: docker/build-push-action@v5
+                with:
+                    file: $GITHUB_WORKSPACE/${{inputs.dockerfile-root-folder}}
+                    push: true
+                    tags: othmansebti/test:latest
